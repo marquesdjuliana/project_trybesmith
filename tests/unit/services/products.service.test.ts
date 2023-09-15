@@ -19,5 +19,16 @@ describe('ProductsService', function () {
     expect(serviceResponse.status).to.equal('CREATED');
     expect(serviceResponse.data).to.eql(productsMock.productResponse);
   });
+  it('should successfully retrieve all products and respond with status 200 and the list of products', async function () {
+    // arrange:
+    const mockList = productsMock.trybesmithProducts.map( (product)=> ProductModel.build(product));
+    sinon.stub(ProductModel, 'findAll').resolves(mockList);
   
+    // act:
+    const serviceResponse = await productsService.listAllProducts();
+  
+    // assert:
+    expect(serviceResponse.status).to.equal('SUCCESSFUL');
+    expect(serviceResponse.data).to.be.eql(productsMock.trybesmithProducts);
+  });
 });
