@@ -1,5 +1,5 @@
 import ProductModel, { ProductInputtableTypes } from '../database/models/product.model';
-import { ProductResponse } from '../types/Product';
+import { Product, ProductResponse } from '../types/Product';
 import { ServiceResponse } from '../types/ServiceResponse';
 import { validateProduct } from './validations/productValidation';
 
@@ -13,7 +13,6 @@ Promise<ServiceResponse<ProductResponse>> => {
     };
   }
   const product = await ProductModel.create(productInfo);
-  // return { status: 'CREATED', data: product.dataValues };
   const responseService: ServiceResponse<ProductResponse> = {
     status: 'CREATED',
     data: {
@@ -26,6 +25,12 @@ Promise<ServiceResponse<ProductResponse>> => {
   return responseService;
 };
 
+const listAllProducts = async (): Promise<ServiceResponse<Product[]>> => {
+  const products = await ProductModel.findAll();
+  const data = products.map((product) => product.dataValues);
+  return { status: 'SUCCESSFUL', data };
+};
 export default {
   createProduct,
+  listAllProducts,
 };
