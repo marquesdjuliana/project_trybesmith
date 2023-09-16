@@ -11,6 +11,20 @@ const trybesmithOrders = [
     productIds: [4, 3],
   },
 ]
+
+const ordersWithEmptyProductIds = [
+  {
+    id: 1,
+    userId: 1,
+    productIds: [],
+  },
+  {
+    id: 2,
+    userId: 3,
+    productIds: [],
+  },
+];
 export default {
-trybesmithOrders
+trybesmithOrders,
+ordersWithEmptyProductIds,
 };

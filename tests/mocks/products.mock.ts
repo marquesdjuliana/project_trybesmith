@@ -1,4 +1,5 @@
 import { ProductInputtableTypes } from "../../src/database/models/product.model";
+import { Product } from "../../src/types/Product";
 
 const productRequest = {
   name: "Martelo de Thor",
@@ -12,7 +13,7 @@ const productResponse = {
   price: "30 peças de ouro",
 } as ProductInputtableTypes;
 
-const trybesmithProducts = [
+const trybesmithProducts: Product[] = [
   {
     id: 1,
     name: 'Martelo de Thor',
@@ -26,9 +27,14 @@ const trybesmithProducts = [
     orderId: 4
   }
 ]
+const productWithMissingParam = {
+  name: "Martelo de Thor",
+  price: "30 peças de ouro"
+} as ProductInputtableTypes;
 
 export default {
   productRequest,
   productResponse,
   trybesmithProducts,
+  productWithMissingParam,
 }

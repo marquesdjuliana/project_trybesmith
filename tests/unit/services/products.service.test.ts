@@ -31,4 +31,16 @@ describe('ProductsService', function () {
     expect(serviceResponse.status).to.equal('SUCCESSFUL');
     expect(serviceResponse.data).to.be.eql(productsMock.trybesmithProducts);
   });
+  it('should return status 400 and an error message when adding a product with missing parameters', async function () {
+    // arrange:
+    const parameters = productsMock.productWithMissingParam;
+  
+    // act:
+    const serviceResponse = await productsService.createProduct(parameters);
+  
+    // assert:
+    expect(serviceResponse.status).to.equal('BAD_REQUEST');
+    expect(serviceResponse.data).to.be.eql({ message: "\"orderId\" is required" });
+  });
+
 });

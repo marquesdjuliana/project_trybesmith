@@ -23,4 +23,16 @@ describe('OrdersService', function () {
     expect(serviceResponse.status).to.eq('SUCCESSFUL');
     expect(serviceResponse.data).to.be.deep.equal(ordersMock.trybesmithOrders);
   });
+  it('should successfully handle orders with empty productIds and respond with status 200 and an empty array of productIds', async function () {
+    // arrange
+    const mockOrderList = ordersMock.trybesmithOrders.map((order) => OrderModel.build(order));
+    sinon.stub(OrderModel, 'findAll').resolves(mockOrderList);
+    
+    // act
+    const serviceResponse = await ordersService.listAllOrders();
+    
+    // assert
+    expect(serviceResponse.status).to.eq('SUCCESSFUL');
+    expect(serviceResponse.data).to.be.deep.equal(ordersMock.ordersWithEmptyProductIds);
+  });
 });
