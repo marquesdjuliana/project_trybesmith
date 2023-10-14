@@ -40,17 +40,24 @@ git clone git@github.com:marquesdjuliana/project_trybesmith.git
 ```sh
 cd project_trybesmith 
 ```
-3. Rode os serviços app-trybesmith e db com o comando:
+3. Agora que está na raiz do projeto execute o seguinte comando para iniciar os serviços do Docker e, em seguida, para instalar as dependências com o npm i:
 ```sh
-docker-compose up -d --build
+docker-compose up -d --build && docker exec -it trybesmith_api npm i
 ```
-Esses serviços irão inicializar um container chamado trybesmith_api e outro chamado trybesmith_db.
-
-4. Use o comando para entrar no container:
+4. A partir daqui você pode rodar o container trybesmith_api via CLI ou abri-lo no VS Code.
+Rode o comando para criar o banco de dados, as tabelas que serão utilizadas e populá-las:
 ```sh
-docker exec -it trybesmith_api bash
+npm run db:reset
+```
+5. Para testes e coberturas rode respectivamente:
+```sh
+npm run test:local
 ```
 
+```sh
+npm run test:coverage
+```
+   
 **# :construction: README em construção! :construction:**
 Sinta-se à vontade para explorar este projeto, acompanhar meu crescimento e contribuir, se desejar. Se você tiver alguma sugestão, feedback ou quiser trocar conhecimentos, será um prazer conectar com você no LinkedIn!
 
