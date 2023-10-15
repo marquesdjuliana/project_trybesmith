@@ -58,7 +58,6 @@ npm run test:local
 npm run test:coverage
 ```
    
-**# :construction: README em construção! :construction:**
 Sinta-se à vontade para explorar este projeto, acompanhar meu crescimento e contribuir, se desejar. Se você tiver alguma sugestão, feedback ou quiser trocar conhecimentos, será um prazer conectar com você no LinkedIn!
 
 
