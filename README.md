@@ -34,11 +34,11 @@ Se deseja experimentar o projeto em sua máquina local, siga estas etapas:
 
 1. Clone o repositório:
 ```sh
-git clone git@github.com:marquesdjuliana/project_trybesmith.git
+git clone git@github.com:marquesdjuliana/trybesmith.git
 ```
 2. Entre na pasta do repositório:
 ```sh
-cd project_trybesmith 
+cd trybesmith 
 ```
 3. Agora que está na raiz do projeto execute o seguinte comando para iniciar os serviços do Docker e, em seguida, para instalar as dependências com o npm i:
 ```sh
